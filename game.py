@@ -30,19 +30,19 @@ class Game:
         
         # Setup rooms
 
-        forest = Room("Forest", "dans une forêt enchantée. Vous entendez une brise légère à travers la cime des arbres.")
-        self.rooms.append(forest)
-        tower = Room("Tower", "dans une immense tour en pierre qui s'élève au dessus des nuages.")
-        self.rooms.append(tower)
-        cave = Room("Cave", "dans une grotte profonde et sombre. Des voix semblent provenir des profondeurs.")
-        self.rooms.append(cave)
-        cottage = Room("Cottage", "dans un petit chalet pittoresque avec un toit de chaume. Une épaisse fumée verte sort de la cheminée.")
-        self.rooms.append(cottage)
-        swamp = Room("Swamp", "dans un marécage sombre et ténébreux. L'eau bouillonne, les abords sont vaseux.")
-        self.rooms.append(swamp)
-        castle = Room("Castle", "dans un énorme château fort avec des douves et un pont levis. Sur les tours, des flèches en or massif.")
-        self.rooms.append(castle)
-
+        terre = Room("Terre", "Sur la planète Terre, vous êtes prêt à partir pour Namek ou à y revenir.")
+        self.rooms.append(terre)
+        namek_village = Room("Village Namekien", "dans un village paisible, entouré de maisons en forme de dômes. Les habitants méditent en silence sous les arbres Ajisa." )
+        self.rooms.append(namek_village)
+        guru_house = Room("Maison de Guru", "au sommet d'une colline rocheuse, dans la demeure sacrée du Grand Guru. L'air y est chargé d'une énergie mystérieuse.")
+        self.rooms.append(guru_house)
+        floating_islands = Room("Îles Flottantes", "au-dessus de l'océan turquoise, sur des îles flottantes maintenues par une force étrange. La lumière des deux soleils illumine tout.")
+        self.rooms.append(floating_islands)
+        ancient_cave = Room("Grotte Ancienne", "dans une ancienne caverne ornée de cristaux verts luminescents. Les murs murmurent l'histoire des anciens Namekiens.")
+        self.rooms.append(ancient_cave)
+        sacred_lake = Room("Lac Sacré", "au bord d'un lac immobile, dont la surface brille comme un miroir d'émeraude. Une aura de calme divin émane de cet endroit.")
+        self.rooms.append(sacred_lake)
+        Earth = Room("Terre", "Vous êtes sur la planète Terre, entouré de vastes prairies et de montagnes majestueuses. Le vent souffle doucement, apportant l'odeur des fleurs et de l'herbe fraîche. C'est un endroit paisible, mais une énergie étrange semble vibrer dans l'air, comme un appel à l'aventure.")
         # Create exits for rooms
 
         forest.exits = {"N" : cave, "E" : tower, "S" : castle, "O" : None}
