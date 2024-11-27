@@ -49,12 +49,15 @@ class Game:
 
         # Create exits for rooms
 
-        forest.exits = {"N" : cave, "E" : tower, "S" : castle, "O" : None}
-        tower.exits = {"N" : cottage, "E" : None, "S" : swamp, "O" : forest}
-        cave.exits = {"N" : None, "E" : cottage, "S" : forest, "O" : None}
-        cottage.exits = {"N" : None, "E" : None, "S" : tower, "O" : cave}
-        swamp.exits = {"N" : tower, "E" : None, "S" : None, "O" : castle}
-        castle.exits = {"N" : forest, "E" : swamp, "S" : None, "O" : None}
+        namek_village = {"N" : cave, "E" : tower, "S" : castle, "O" : None}
+        guru_house = {"N" : cottage, "E" : None, "S" : swamp, "O" : forest}
+        floating_islands = {"N" : None, "E" : cottage, "S" : forest, "O" : None}
+        ancient_cave = {"N" : None, "E" : None, "S" : tower, "O" : cave}
+        sacred_lake = {"N" : tower, "E" : None, "S" : None, "O" : castle}
+        Earth = {"N" : forest, "E" : swamp, "S" : None, "O" : None}
+        goku_spaceship = {"N" : forest, "E" : swamp, "S" : None, "O" : None}
+        frieza_spaceship = {"N" : forest, "E" : swamp, "S" : None, "O" : None}
+        
 
         # Setup player and starting room
 
