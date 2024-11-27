@@ -30,8 +30,6 @@ class Game:
         
         # Setup rooms
 
-        terre = Room("Terre", "Sur la planète Terre, vous êtes prêt à partir pour Namek ou à y revenir.")
-        self.rooms.append(terre)
         namek_village = Room("Village Namekien", "dans un village paisible, entouré de maisons en forme de dômes. Les habitants méditent en silence sous les arbres Ajisa." )
         self.rooms.append(namek_village)
         guru_house = Room("Maison de Guru", "au sommet d'une colline rocheuse, dans la demeure sacrée du Grand Guru. L'air y est chargé d'une énergie mystérieuse.")
@@ -44,6 +42,11 @@ class Game:
         self.rooms.append(sacred_lake)
         Earth = Room("Terre", "Vous êtes sur la planète Terre, entouré de vastes prairies et de montagnes majestueuses. Le vent souffle doucement, apportant l'odeur des fleurs et de l'herbe fraîche. C'est un endroit paisible, mais une énergie étrange semble vibrer dans l'air, comme un appel à l'aventure.")
         self.rooms.append(Earth)
+        goku_spaceship = Room("Vaisseau Spatial de Goku", "À bord d'un vaisseau sphérique argenté, conçu par le génie de Capsule Corporation.")
+        self.rooms.append(goku_spaceship)
+        frieza_spaceship = Room("Vaisseau Spatial de Freezer", "Un vaisseau en disque sombre, éclairé de violet. Au centre, un trône flottant domine, entouré de couloirs métalliques et de hangars menaçants.")
+        self.rooms.append(frieza_spaceship)
+
         # Create exits for rooms
 
         forest.exits = {"N" : cave, "E" : tower, "S" : castle, "O" : None}
