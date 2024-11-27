@@ -44,19 +44,19 @@ class Game:
         self.rooms.append(Earth)
         goku_spaceship = Room("Vaisseau Spatial de Goku", "À bord d'un vaisseau sphérique argenté, conçu par le génie de Capsule Corporation.")
         self.rooms.append(goku_spaceship)
-        frieza_spaceship = Room("Vaisseau Spatial de Freezer", "Un vaisseau en disque sombre, éclairé de violet. Au centre, un trône flottant domine, entouré de couloirs métalliques et de hangars menaçants.")
+        freeza_spaceship = Room("Vaisseau Spatial de Freezer", "Un vaisseau en disque sombre, éclairé de violet. Au centre, un trône flottant domine, entouré de couloirs métalliques et de hangars menaçants.")
         self.rooms.append(frieza_spaceship)
 
         # Create exits for rooms
 
-        namek_village = {"N" : cave, "E" : tower, "S" : castle, "O" : None}
-        guru_house = {"N" : cottage, "E" : None, "S" : swamp, "O" : forest}
-        floating_islands = {"N" : None, "E" : cottage, "S" : forest, "O" : None}
-        ancient_cave = {"N" : None, "E" : None, "S" : tower, "O" : cave}
-        sacred_lake = {"N" : tower, "E" : None, "S" : None, "O" : castle}
-        Earth = {"N" : forest, "E" : swamp, "S" : None, "O" : None}
-        goku_spaceship = {"N" : forest, "E" : swamp, "S" : None, "O" : None}
-        frieza_spaceship = {"N" : forest, "E" : swamp, "S" : None, "O" : None}
+        namek_village = {"N" : None, "E" : sacred_lake, "S" : ancient_cave, "O" : None}
+        guru_house = {"N" : None, "E" : floating_islands, "S" : sacred_lake, "O" : None}
+        floating_islands = {"N" : None, "E" : None, "S" : freeza_spaceship, "O" : guru_house}
+        ancient_cave = {"N" : namek_village, "E" : freeza_spaceship, "S" : None, "O" : None}
+        sacred_lake = {"N" : guru_house, "E" : freeza_spaceship, "S" : ancient_cave, "O" : namek_village}
+        Earth = {"U" : goku_spaceship, "E" : None, "S" : None, "O" : None}
+        goku_spaceship = {"D" : namek_village, "E" : None, "S" : None, "O" : None}
+        frieza_spaceship = {"N" : None, "E" : None, "S" : None, "O" : ancient_cave}
         
 
         # Setup player and starting room
