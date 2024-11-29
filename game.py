@@ -25,7 +25,7 @@ class Game:
         self.commands["help"] = help
         quit = Command("quit", " : quitter le jeu", Actions.quit, 0)
         self.commands["quit"] = quit
-        go = Command("go", " <direction> : se déplacer dans une direction cardinale (N, E, S, O)", Actions.go, 1)
+        go = Command("go", " <direction> : se déplacer dans une direction cardinale (N, E, S, O, U, D)", Actions.go, 1)
         self.commands["go"] = go
         
         # Setup rooms
@@ -45,7 +45,7 @@ class Game:
         goku_spaceship = Room("Vaisseau Spatial de Goku", "À bord d'un vaisseau sphérique argenté, conçu par le génie de Capsule Corporation.")
         self.rooms.append(goku_spaceship)
         freeza_spaceship = Room("Vaisseau Spatial de Freezer", "Un vaisseau en disque sombre, éclairé de violet. Au centre, un trône flottant domine, entouré de couloirs métalliques et de hangars menaçants.")
-        self.rooms.append(frieza_spaceship)
+        self.rooms.append(freeza_spaceship)
 
         # Create exits for rooms
 
@@ -62,7 +62,7 @@ class Game:
         # Setup player and starting room
 
         self.player = Player(input("\nEntrez votre nom: "))
-        self.player.current_room = swamp
+        self.player.current_room = Earth
 
     # Play the game
     def play(self):
