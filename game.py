@@ -54,8 +54,8 @@ class Game:
         floating_islands = {"N" : None, "E" : None, "S" : freeza_spaceship, "O" : guru_house}
         ancient_cave = {"N" : namek_village, "E" : freeza_spaceship, "S" : None, "O" : None}
         sacred_lake = {"N" : guru_house, "E" : freeza_spaceship, "S" : ancient_cave, "O" : namek_village}
-        Earth = {"U" : goku_spaceship, "E" : None, "S" : None, "O" : None}
-        goku_spaceship = {"D" : namek_village, "E" : None, "S" : None, "O" : None}
+        Earth = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : goku_spaceship, "D" : None}
+        goku_spaceship = {"N" : None, "E" : None, "S" : None, "O" : None,"U" : None, "D" : namek_village}
         frieza_spaceship = {"N" : None, "E" : None, "S" : None, "O" : ancient_cave}
         
 
