@@ -49,14 +49,14 @@ class Game:
 
         # Create exits for rooms
 
-        namek_village = {"N" : None, "E" : sacred_lake, "S" : ancient_cave, "O" : None}
-        guru_house = {"N" : None, "E" : floating_islands, "S" : sacred_lake, "O" : None}
-        floating_islands = {"N" : None, "E" : None, "S" : freeza_spaceship, "O" : guru_house}
-        ancient_cave = {"N" : namek_village, "E" : freeza_spaceship, "S" : None, "O" : None}
-        sacred_lake = {"N" : guru_house, "E" : freeza_spaceship, "S" : ancient_cave, "O" : namek_village}
+        namek_village = {"N" : None, "E" : sacred_lake, "S" : ancient_cave, "O" : None,"U" : None, "D" : None}
+        guru_house = {"N" : None, "E" : floating_islands, "S" : sacred_lake, "O" : None,"U" : None, "D" : None}
+        floating_islands = {"N" : None, "E" : None, "S" : freeza_spaceship, "O" : guru_house,"U" : None, "D" : None}
+        ancient_cave = {"N" : namek_village, "E" : freeza_spaceship, "S" : None, "O" : None,"U" : None, "D" : None}
+        sacred_lake = {"N" : guru_house, "E" : freeza_spaceship, "S" : ancient_cave, "O" : namek_village,"U" : None, "D" : None}
         Earth = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : goku_spaceship, "D" : None}
         goku_spaceship = {"N" : None, "E" : None, "S" : None, "O" : None,"U" : None, "D" : namek_village}
-        frieza_spaceship = {"N" : None, "E" : None, "S" : None, "O" : ancient_cave}
+        frieza_spaceship = {"N" : None, "E" : None, "S" : None, "O" : ancient_cave,"U" : None, "D" : None}
         
 
         # Setup player and starting room
