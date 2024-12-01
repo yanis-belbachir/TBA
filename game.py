@@ -40,23 +40,23 @@ class Game:
         self.rooms.append(ancient_cave)
         sacred_lake = Room("Lac Sacré", "au bord d'un lac immobile, dont la surface brille comme un miroir d'émeraude. Une aura de calme divin émane de cet endroit.")
         self.rooms.append(sacred_lake)
-        Earth = Room("Terre", "Vous êtes sur la planète Terre, entouré de vastes prairies et de montagnes majestueuses. Le vent souffle doucement, apportant l'odeur des fleurs et de l'herbe fraîche. C'est un endroit paisible, mais une énergie étrange semble vibrer dans l'air, comme un appel à l'aventure.")
+        Earth = Room("Terre", "sur la planète Terre, entouré de vastes prairies et de montagnes majestueuses. Le vent souffle doucement, apportant l'odeur des fleurs et de l'herbe fraîche. C'est un endroit paisible, mais une énergie étrange semble vibrer dans l'air, comme un appel à l'aventure.")
         self.rooms.append(Earth)
-        goku_spaceship = Room("Vaisseau Spatial de Goku", "À bord d'un vaisseau sphérique argenté, conçu par le génie de Capsule Corporation.")
+        goku_spaceship = Room("Vaisseau Spatial de Goku", "à bord d'un vaisseau sphérique argenté, conçu par le génie de Capsule Corporation.")
         self.rooms.append(goku_spaceship)
-        freeza_spaceship = Room("Vaisseau Spatial de Freezer", "Un vaisseau en disque sombre, éclairé de violet. Au centre, un trône flottant domine, entouré de couloirs métalliques et de hangars menaçants.")
+        freeza_spaceship = Room("Vaisseau Spatial de Freezer", "dans un vaisseau en disque sombre, éclairé de violet. Au centre, un trône flottant domine, entouré de couloirs métalliques et de hangars menaçants.")
         self.rooms.append(freeza_spaceship)
 
         # Create exits for rooms
 
-        namek_village = {"N" : None, "E" : sacred_lake, "S" : ancient_cave, "O" : None,"U" : None, "D" : None}
-        guru_house = {"N" : None, "E" : floating_islands, "S" : sacred_lake, "O" : None,"U" : None, "D" : None}
-        floating_islands = {"N" : None, "E" : None, "S" : freeza_spaceship, "O" : guru_house,"U" : None, "D" : None}
-        ancient_cave = {"N" : namek_village, "E" : freeza_spaceship, "S" : None, "O" : None,"U" : None, "D" : None}
-        sacred_lake = {"N" : guru_house, "E" : freeza_spaceship, "S" : ancient_cave, "O" : namek_village,"U" : None, "D" : None}
-        Earth = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : goku_spaceship, "D" : None}
-        goku_spaceship = {"N" : None, "E" : None, "S" : None, "O" : None,"U" : None, "D" : namek_village}
-        frieza_spaceship = {"N" : None, "E" : None, "S" : None, "O" : ancient_cave,"U" : None, "D" : None}
+        namek_village.exits = {"N" : None, "E" : sacred_lake, "S" : ancient_cave, "O" : None,"U" : None, "D" : None}
+        guru_house.exits = {"N" : None, "E" : floating_islands, "S" : sacred_lake, "O" : None,"U" : None, "D" : None}
+        floating_islands.exits = {"N" : None, "E" : None, "S" : freeza_spaceship, "O" : guru_house,"U" : None, "D" : None}
+        ancient_cave.exits = {"N" : namek_village, "E" : freeza_spaceship, "S" : None, "O" : None,"U" : None, "D" : None}
+        sacred_lake.exits = {"N" : guru_house, "E" : freeza_spaceship, "S" : ancient_cave, "O" : namek_village,"U" : None, "D" : None}
+        Earth.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : goku_spaceship, "D" : None}
+        goku_spaceship.exits = {"N" : None, "E" : None, "S" : None, "O" : None,"U" : None, "D" : namek_village}
+        freeza_spaceship.exits = {"N" : None, "E" : None, "S" : None, "O" : ancient_cave,"U" : None, "D" : None}
         
 
         # Setup player and starting room
