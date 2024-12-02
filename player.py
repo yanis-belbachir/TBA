@@ -1,3 +1,5 @@
+from actions import VALID_DIRECTIONS
+
 # Define the Player class.
 class Player():
 
@@ -8,6 +10,10 @@ class Player():
     
     # Define the move method.
     def move(self, direction):
+        # Vérifie si la direction est valide
+        if direction not in VALID_DIRECTIONS:
+            return False
+
         # Get the next room from the exits dictionary of the current room.
         next_room = self.current_room.exits[direction]
 

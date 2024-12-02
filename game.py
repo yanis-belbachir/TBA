@@ -7,6 +7,8 @@ from player import Player
 from command import Command
 from actions import Actions
 
+VALID_DIRECTIONS = {"N", "E", "S", "O", "U", "D"}
+
 class Game:
 
     # Constructor
@@ -82,7 +84,7 @@ class Game:
 
         command_word = list_of_words[0]
 
-                # If there is no command
+        # If there is no command
         if command_word == "":
             return
 
@@ -93,6 +95,13 @@ class Game:
         else:
             command = self.commands[command_word]
             command.action(self, list_of_words, command.number_of_parameters)
+
+            # Vérifier si la commande 'go' a une direction valide
+        if command_word == "go" and len(list_of_words) > 1:
+            direction = list_of_words[1]
+            if direction not in VALID_DIRECTIONS:
+                print(f"\n'{direction}' n'est pas une direction valide ! Les directions possibles sont: {', '.join(VALID_DIRECTIONS)}.\n")
+                return
 
     # Print the welcome message
     def print_welcome(self):
