@@ -28,7 +28,9 @@ class Game:
         self.commands["quit"] = quit
         go = Command("go", " <direction> : se déplacer dans une direction cardinale (N, E, S, O, U, D)", Actions.go, 1)
         self.commands["go"] = go
-
+        back = commands("back","retourne à la dernière salle visité",0)
+        self.command["history"] = history
+        
         # Liste des directions possibles
         self.directions = {"N", "E", "S", "O", "U", "D"}
         Direction_Map = {"N": "N", "NORD": "N", "E": "E", "EST": "E", "S": "S", "SUD": "S", "O": "O", "OUEST": "O", "UP": "U", "HAUT": "U", "DOWN": "D", "BAS": "D"}

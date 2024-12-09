@@ -29,3 +29,11 @@ class Room:
     # Return a long description of this room including exits.
     def get_long_description(self):
         return f"\nVous êtes {self.description}\n\n{self.get_exit_string()}\n"
+
+    
+
+    def get_history(self):
+        print("Vous avez déja visité les pièces suivantes")
+        for i in range(len(self.history)):
+            print("\t-"+self.history[i].description+"\n")
+        return

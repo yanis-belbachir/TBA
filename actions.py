@@ -157,3 +157,11 @@ class Actions:
             print("\t- " + str(command))
         print()
         return True
+
+    def back(game, list_of_words, number_of_parameters):
+        if game.player.history:
+            previous_room = game.player.history.pop() #on retire la dernière salle de l'historique
+            game.player.current_room = previous_room
+            
+
+
