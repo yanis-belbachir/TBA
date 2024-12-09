@@ -28,9 +28,12 @@ class Game:
         self.commands["quit"] = quit
         go = Command("go", " <direction> : se déplacer dans une direction cardinale (N, E, S, O, U, D)", Actions.go, 1)
         self.commands["go"] = go
-        back = commands("back","retourne à la dernière salle visité",0)
-        self.command["history"] = history
-        
+        back = Command("back"," :permet de retourner dans la salle précédente",Actions.back,0)
+        self.commands["back"]= back
+       
+
+
+
         # Liste des directions possibles
         self.directions = {"N", "E", "S", "O", "U", "D"}
         Direction_Map = {"N": "N", "NORD": "N", "E": "E", "EST": "E", "S": "S", "SUD": "S", "O": "O", "OUEST": "O", "UP": "U", "HAUT": "U", "DOWN": "D", "BAS": "D"}
@@ -53,6 +56,8 @@ class Game:
         self.rooms.append(goku_spaceship)
         freeza_spaceship = Room("Vaisseau Spatial de Freezer", "dans un vaisseau en disque sombre, éclairé de violet.")
         self.rooms.append(freeza_spaceship)
+        space = Room("Espace", "Vous êtes dans l'espace.")
+        self.rooms.append(space)
         
 
 
@@ -65,8 +70,9 @@ class Game:
         ancient_cave.exits = {"N" : namek_village, "E" : freeza_spaceship, "S" : None, "O" : None,"U" : None, "D" : None}
         sacred_lake.exits = {"N" : guru_house, "E" : freeza_spaceship, "S" : ancient_cave, "O" : namek_village,"U" : None, "D" : None}
         Earth.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : goku_spaceship, "D" : None}
-        goku_spaceship.exits = {"N" : None, "E" : None, "S" : None, "O" : None,"U" : None, "D" : namek_village}
+        goku_spaceship.exits = {"N" : None, "E" : space, "S" : None, "O" : None,"U" : None, "D" : Earth}
         freeza_spaceship.exits = {"N" : None, "E" : None, "S" : None, "O" : ancient_cave,"U" : None, "D" : None}
+        space.exits = {"N" : None, "E" : None, "S" : None, "O" : None,"U" : None, "D" : namek_village }
 
 
 

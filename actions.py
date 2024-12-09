@@ -160,8 +160,16 @@ class Actions:
 
     def back(game, list_of_words, number_of_parameters):
         if game.player.history:
-            previous_room = game.player.history.pop() #on retire la dernière salle de l'historique
+            previous_room = game.player.history.pop()  # Get the last visited room
             game.player.current_room = previous_room
+            print(f"\nVous êtes revenu à: {game.player.current_room.name}")
+            print(game.player.current_room.get_long_description())
+        else:
+            print("\nAucune pièce précédente dans l'historique pour revenir.\n")
+        game.player.get_history()
+        
+
+
             
 
 
