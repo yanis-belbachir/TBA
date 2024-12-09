@@ -16,15 +16,12 @@ MSG0 = "\nLa commande '{command_word}' ne prend pas de paramètre.\n"
 # The MSG1 variable is used when the command takes 1 parameter.
 MSG1 = "\nLa commande '{command_word}' prend 1 seul paramètre.\n"
 
-#Ensemble global de directions valides
-VALID_DIRECTIONS = {"N", "E", "S", "O", "U", "D"}
-
 class Actions:
 
     def go(game, list_of_words, number_of_parameters):
         """
         Move the player in the direction specified by the parameter.
-        The parameter must be a cardinal direction (N, E, S, O, U, D).
+        The parameter must be a cardinal direction ( N, E, S, O )
 
         Args:
             game (Game): The game object.
@@ -48,17 +45,37 @@ class Actions:
 
         """
         
+        Direction_Map = {"N": "N", "NORD": "N", "E": "E", "EST": "E", "S": "S", "SUD": "S", "O": "O", "OUEST": "O", "U": "U", "UP": "U", "D": "D", "DOWN": "D"}
+
+
         player = game.player
+
+        # Nettoyage de l'entrée pour supprimer les espaces inutiles
+        list_of_words = [word.strip() for word in list_of_words if word.strip()]
+
         l = len(list_of_words)
+        
         # If the number of parameters is incorrect, print an error message and return False.
         if l != number_of_parameters + 1:
             command_word = list_of_words[0]
             print(MSG1.format(command_word=command_word))
             return False
+        
+        # Récupération de la direction saisie et normalisation
+        input_direction = list_of_words[1].upper()  # Convertir en majuscules pour correspondre aux clés du dictionnaire
 
-        # Get the direction from the list of words.
-        direction = list_of_words[1]
-        # Move the player in the direction specified by the parameter.
+        # Vérifier si l'entrée correspond à une direction valide via le mappage
+        direction = Direction_Map.get(input_direction)
+        if not direction:
+            print(f"\nLa direction '{list_of_words[1]}' n'est pas valide. Commandes possibles : go ' N, S, E, O, Up, Down '\n")
+            return False
+
+        # Vérification si une sortie existe pour cette direction
+        if direction not in player.current_room.exits or player.current_room.exits[direction] is None:
+            print(f"\nImpossible d'aller dans la direction '{direction}' depuis ici. Bulma ne veut pas...\n")
+            return False
+
+        # Déplacement réussi
         player.move(direction)
         return True
 

@@ -7,8 +7,6 @@ from player import Player
 from command import Command
 from actions import Actions
 
-VALID_DIRECTIONS = {"N", "E", "S", "O", "U", "D"}
-
 class Game:
 
     # Constructor
@@ -17,6 +15,7 @@ class Game:
         self.rooms = []
         self.commands = {}
         self.player = None
+        self.directions = set()
     
     # Setup the game
     def setup(self):
@@ -29,25 +28,32 @@ class Game:
         self.commands["quit"] = quit
         go = Command("go", " <direction> : se déplacer dans une direction cardinale (N, E, S, O, U, D)", Actions.go, 1)
         self.commands["go"] = go
+
+        # Liste des directions possibles
+        self.directions = {"N", "E", "S", "O", "U", "D"}
+        Direction_Map = {"N": "N", "NORD": "N", "E": "E", "EST": "E", "S": "S", "SUD": "S", "O": "O", "OUEST": "O", "UP": "U", "HAUT": "U", "DOWN": "D", "BAS": "D"}
         
         # Setup rooms
 
-        namek_village = Room("Village Namekien", "dans un village paisible, entouré de maisons en forme de dômes. Les habitants méditent en silence sous les arbres Ajisa." )
+        namek_village = Room("Village Namekien", "un village paisible, entouré de maisons en forme de dômes. Les habitants méditent en silence sous les arbres Ajisa." )
         self.rooms.append(namek_village)
         guru_house = Room("Maison de Guru", "au sommet d'une colline rocheuse, dans la demeure sacrée du Grand Guru. L'air y est chargé d'une énergie mystérieuse.")
         self.rooms.append(guru_house)
         floating_islands = Room("Îles Flottantes", "au-dessus de l'océan turquoise, sur des îles flottantes maintenues par une force étrange. La lumière des deux soleils illumine tout.")
         self.rooms.append(floating_islands)
-        ancient_cave = Room("Grotte Ancienne", "dans une ancienne caverne ornée de cristaux verts luminescents. Les murs murmurent l'histoire des anciens Namekiens.")
+        ancient_cave = Room("Grotte Ancienne", "une ancienne caverne ornée de cristaux verts luminescents. Les murs murmurent l'histoire des anciens Namekiens.")
         self.rooms.append(ancient_cave)
         sacred_lake = Room("Lac Sacré", "au bord d'un lac immobile, dont la surface brille comme un miroir d'émeraude. Une aura de calme divin émane de cet endroit.")
         self.rooms.append(sacred_lake)
-        Earth = Room("Terre", "sur la planète Terre, entouré de vastes prairies et de montagnes majestueuses. Le vent souffle doucement, apportant l'odeur des fleurs et de l'herbe fraîche. C'est un endroit paisible, mais une énergie étrange semble vibrer dans l'air, comme un appel à l'aventure.")
+        Earth = Room("Terre", "sur la planète Terre, entouré de vastes prairies et de montagnes majestueuses.")
         self.rooms.append(Earth)
         goku_spaceship = Room("Vaisseau Spatial de Goku", "à bord d'un vaisseau sphérique argenté, conçu par le génie de Capsule Corporation.")
         self.rooms.append(goku_spaceship)
-        freeza_spaceship = Room("Vaisseau Spatial de Freezer", "dans un vaisseau en disque sombre, éclairé de violet. Au centre, un trône flottant domine, entouré de couloirs métalliques et de hangars menaçants.")
+        freeza_spaceship = Room("Vaisseau Spatial de Freezer", "dans un vaisseau en disque sombre, éclairé de violet.")
         self.rooms.append(freeza_spaceship)
+        
+
+
 
         # Create exits for rooms
 
@@ -59,7 +65,9 @@ class Game:
         Earth.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : goku_spaceship, "D" : None}
         goku_spaceship.exits = {"N" : None, "E" : None, "S" : None, "O" : None,"U" : None, "D" : namek_village}
         freeza_spaceship.exits = {"N" : None, "E" : None, "S" : None, "O" : ancient_cave,"U" : None, "D" : None}
-        
+
+
+
 
         # Setup player and starting room
 
@@ -84,9 +92,8 @@ class Game:
 
         command_word = list_of_words[0]
 
-        # If there is no command
-        if command_word == "":
-            return
+        if not command_word :
+            return  
 
         # If the command is not recognized, print an error message
         if command_word not in self.commands.keys():
@@ -95,13 +102,6 @@ class Game:
         else:
             command = self.commands[command_word]
             command.action(self, list_of_words, command.number_of_parameters)
-
-            # Vérifier si la commande 'go' a une direction valide
-        if command_word == "go" and len(list_of_words) > 1:
-            direction = list_of_words[1]
-            if direction not in VALID_DIRECTIONS:
-                print(f"\n'{direction}' n'est pas une direction valide ! Les directions possibles sont: {', '.join(VALID_DIRECTIONS)}.\n")
-                return
 
     # Print the welcome message
     def print_welcome(self):
